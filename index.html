@@ -9,12 +9,66 @@
 	<body>
 		<h1>Documentação de Arquivos de Miis</h1>
 		<hr />
-		<h2>Índice</h2>
-		<ul>
-			<li><a href="#objetivo-da-pagina">Objetivo da Página</a></li>
-		</ul>
 
-		<h2 tag="objetivo-da-pagina">Objetivo da Página</h2>
+		<h2 id="indice">Índice</h2>
+		<ol>
+			<li><a href="#objetivo-da-pagina">Objetivo da Página</a></li>
+			<li><a href="#distribuicao-de-arquivos">Distribuição de Arquivos</a></li>
+			<ul>
+				<li><a href="#nintendo-wii">Nintendo Wii</a></li>
+				<li><a href="#nintendo-wii-u">Nintendo Wii U / Nintendo 3DS</a></li>
+				<li><a href="#nintendo-switch">Nintendo Switch</a></li>
+				<li><a href="#site-nintendo">Site Oficial da Nintendo</a></li>
+			</ul>
+			<li><a href="#avaliacao-de-arquivos">Avaliação de Arquivos</a></li>
+			<li><a href="#referencias">Referências</a></li>
+		</ol>
+		<hr />
+
+		<h2 id="objetivo-da-pagina">Objetivo da Página</h2>
+		<p>O objetivo dessa página é <mark>documentar como são armazenados os personagens <strong><i>Miis*</i></strong></mark>, criados pela Nintendo inicialmente para o console <i>Nintendo Wii</i> porém usado até os dias de hoje.<sup><a href="#[I]">[I]</a></sup></p>
+		<blockquote cite="https://pt.wikipedia.org/wiki/Mii"><i>* Mii é um <mark>avatar personalizável</mark> utilizado em alguns consoles de videogames da Nintendo e aplicativos para smartphones.</i></blockquote>
+		<a href="#indice"><small>Voltar ao índice</small></a>
+		<hr />
+
+		<h2 id="distribuicao-de-arquivos">Distribuição de Arquivos</h2>
+		<p>Os arquivos de Miis, até o momento, <mark>possuem 7 diferentes formatos</mark>, cada um com suas peculiaridades e diferentes distribuições de bits.<sup><a href="#[II]">[II]</a></sup></p>
+		<p>Até o momento, são esses os formatos, separados por plataforma:</p>
+		<h3 id="nintendo-wii"><u>Nintendo Wii</u></h3>
+		<h4 id="rcd"><abbr title="Revolution Character Data">RCD</abbr></h4>
+		<p>É o padrão em jogos de Nintendo Wii, possui toda a informação necessária para caracterizar um Mii.<sup><a href="#[II]">[II]</a></sup></p>
+		<h4 id="rsd"><abbr title="Revolution Store Data">RSD</abbr></h4>
+		<p>Comparado ao <a href="#rcd"><abbr title="Revolution Character Data">RCD</abbr></a>, é extremamente similar porém com uma única exceção: possui 2 bytes ao final do arquivo que servem como <mark>checksum</mark>.<sup><a href="#[II]">[II]</a></sup></p>
+		<h3 id="nintendo-wii-u"><u>Nintendo Wii U / Nintendo 3DS</u></h3>
+		<h4 id="cfsd"><abbr title="CTR Face Store Data">CFSD</abbr></h4>
+		<p>É o padrão em jogos de Nintendo Wii U e Nintendo 3DS, possui toda a informação necessária para caracterizar um Mii nessas plataformas. Um fato importante é que, nessa extensão, os arquivos possuem o valor <font color="red"><code>30<sub>8</sub></code></font> no quarto byte, indicando que os Miis nessa extensão foram criados no 3DS.<sup><a href="#[II]">[II]</a></sup></p>
+		<h4 id="ffsd"><abbr title="Café Face Store Data">FFSD</abbr></h4>
+		<p>Comparado ao <abbr title="CTR Face Store Data">CFSD</abbr>, é extremamente similar porém com uma única exceção: ao invés de conter o valor <font color="red"><code>30<sub>8</sub></code></font> no quarto byte, possui o valor <font color="red"><code>40<sub>8</sub></code></font>. Esse valor representa que o Mii em questão foi criado no Wii U.<sup><a href="#[II]">[II]</a></sup></p>
+		<h3 id="nintendo-switch"><u>Nintendo Switch</u></h3>
+		<h4 id="nfsd"><abbr title="NX Face Store Data">NFSD</abbr></h4>
+		<p>É o formato encontrado na NAND do sistema Nintendo Switch. Sabe-se, no entanto, que os jogos possuem outra extensão predominante: o <a href="#charinfo"><abbr title="Character Information">CHARINFO</abbr></a>. Além disso, sabe-se que esse arquivo possui bytes dedicados ao <mark>checksum</mark>.<sup><a href="#[II]">[II]</a></sup></p>
+		<h4 id="charinfo"><abbr title="Character Information">CHARINFO</abbr></h4>
+		<p>É o padrão em jogos de Nintendo Switch, possui toda a informação necessária para caracterizar um Mii no Switch. Diferentemente do <a href="#nfsd"><abbr title="NX Face Store Data">NFSD</abbr></a>, essa extensão não possui checksum.<sup><a href="#[II]">[II]</a></sup></p>
+		<h3 id="site-nintendo"><u>Site Oficial da Nintendo</u></h3>
+		<h4 id="mnms"><abbr title="My Nintendo Mii Studio">MNMS</abbr></h4>
+		<p>Esse formato é somente visto no Criador de Miis no site oficial da Nintendo como um cache local.</p>
+		<h5><mark>Tecnicamente é um arquivo-texto ao invés de um binário</mark>.<sup><a href="#[II]">[II]</a></sup></h5>
+		<a href="#indice"><small>Voltar ao índice</small></a>
+		<hr />
+
+		<h2 id="avaliacao-de-arquivos">Avaliação de Arquivos</h2>
+		<p>No futuro, essa seção terá uma distribuição básica sobre a distribuição de bits (e bytes) nos arquivos de Miis.</p>
+		<h6><del><i>Até o momento, só pude mapear a distribuição de bits/bytes na extensão <abbr title="Character Information">CHARINFO</abbr>, pretendo mapear para as outras também.</i></del></h6>
+		<a href="#indice"><small>Voltar ao índice</small></a>
+		<hr />
+
+		<h2 id="referencias">Referências</h2>
+		<ul>
+			<li id="[I]"><a href="https://pt.wikipedia.org/wiki/Mii">[I] https://pt.wikipedia.org/wiki/Mii</a></li>
+			<li id="[II]"><a href="https://github.com/HEYimHeroic/MiiDataFiles?tab=readme-ov-file#wii-formats">[II] https://github.com/HEYimHeroic/MiiDataFiles?tab=readme-ov-file#wii-formats</a></li>
+		</ul>
+		<a href="#indice"><small>Voltar ao índice</small></a>
+
 
 	</body>
 </html>
